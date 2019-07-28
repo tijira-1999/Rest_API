@@ -1,6 +1,7 @@
 const express = require('express');
-
+const mongoose = require('mongoose');
 const app = express();
+require('dotenv/config');
 
 // middlewares
 // a function that executes when routes are hit
@@ -25,6 +26,14 @@ app.get('/posts',(req,res) => {
 
 });
 
+//connect to db
+
+mongoose.connect(
+    process.env.DB_CONNECTION,
+    { useNewUrlParser: true},
+    () => console.log("connected to database")
+    
+    );
 
 // listening from server
 app.listen(3000);  //port 3000 that is localhost :3000 we gonna listen to
