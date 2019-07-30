@@ -1,7 +1,13 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
 const app = express();
 require('dotenv/config');
+
+
+// middleware for parser should be called whenever we send any request
+app.use(bodyParser.json());
+
 
 // middlewares
 // a function that executes when routes are hit
@@ -39,3 +45,7 @@ mongoose.connect(
 
 // listening from server
 app.listen(3000);  //port 3000 that is localhost :3000 we gonna listen to
+
+
+// we cannot process the requests coming in 
+// so we need a package called bodyparser

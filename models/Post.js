@@ -3,8 +3,21 @@ const mongoose = require('mongoose');
 // schema represents how that posts look
 const PostSchema = mongoose.Schema({
 
-    title: String,
-    description: String,
-    date: Date.now
+    title: {
+       type: String,
+       required : true
+
+    },
+    description: {
+        type: String,
+       required : true
+    },
+    date: {
+        type: Date,
+        default: Date.now
+    }
 
 });
+
+module.exports = mongoose.model('Posts',PostSchema);
+
