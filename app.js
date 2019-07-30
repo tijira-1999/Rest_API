@@ -15,16 +15,18 @@ require('dotenv/config');
 
 // app.use(auth); this will check whether a particular user is authenticated for any specific posts
 
+// import routes
+const postsRoute = require('./routes/posts')
+
+app.use('/posts',postsRoute); 
+
 
 // create routes now
 app.get('/',(req,res) => {
     res.send("tijira-1999");
 
 });
-app.get('/posts',(req,res) => {
-    res.send("arijit-1999");
 
-});
 
 //connect to db
 
