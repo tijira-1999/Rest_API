@@ -16,7 +16,20 @@ router.get('/cool',(req,res) => {
 });
 
 router.post('/',(req,res) =>{
-    console.log(req.body);
+    // console.log(req.body);
+    const post = new Post({
+        title: req.body.title,
+        description: req.body.description
+    });
+
+// saving to db
+post.save()               // returns a promise
+.then(data => {
+    res.json(data);   //outputs data on screen
+})
+.catch(err => {
+    res.json({message: err})
+})
 
 });
 
